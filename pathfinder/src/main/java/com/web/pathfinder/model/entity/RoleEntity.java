@@ -1,26 +1,30 @@
 package com.web.pathfinder.model.entity;
 
 import com.web.pathfinder.model.enums.RoleEnum;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.Set;
 
 @Entity
 @Table(name = "roles")
 public class RoleEntity extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
-    private RoleEnum name;
+    @Column(name = "role_id")
+    private RoleEnum role;
+
+    @OneToMany
+    @Column(name = "user_entity_id")
+    private Set<UserEntity> users;
 
     public RoleEntity() {
     }
 
-    public RoleEnum getName() {
-        return name;
+    public RoleEnum getRole() {
+        return role;
     }
 
-    public void setName(RoleEnum name) {
-        this.name = name;
+    public void setRole(RoleEnum role) {
+        this.role = role;
     }
 }

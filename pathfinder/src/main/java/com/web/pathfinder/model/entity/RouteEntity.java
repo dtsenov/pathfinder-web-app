@@ -25,6 +25,9 @@ public class RouteEntity extends BaseEntity {
     @ManyToOne
     private UserEntity author;
 
+    @ManyToOne
+    private CategoryEntity category;
+
     public RouteEntity() {
     }
 
@@ -74,5 +77,13 @@ public class RouteEntity extends BaseEntity {
 
     public void setAuthor(UserEntity author) {
         this.author = author;
+    }
+
+    public CategoryEntity getCategory() {
+        return category;
+    }
+
+    public void setCategory(CategoryEntity category) {
+        this.category = category;
     }
 }
