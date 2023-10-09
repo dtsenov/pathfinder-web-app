@@ -10,12 +10,7 @@ import java.util.Set;
 public class RoleEntity extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "role_id")
     private RoleEnum role;
-
-    @OneToMany
-    @Column(name = "user_entity_id")
-    private Set<UserEntity> users;
 
     public RoleEntity() {
     }
@@ -27,4 +22,5 @@ public class RoleEntity extends BaseEntity {
     public void setRole(RoleEnum role) {
         this.role = role;
     }
+
 }

@@ -15,9 +15,6 @@ public class CategoryEntity extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private CategoryEnum name;
 
-    @OneToMany
-    private Set<RouteEntity> routes;
-
     public CategoryEntity() {
     }
 
@@ -37,11 +34,4 @@ public class CategoryEntity extends BaseEntity {
         this.name = name;
     }
 
-    public Set<RouteEntity> getRoutes() {
-        return routes;
-    }
-
-    public void setRoutes(Set<RouteEntity> routes) {
-        this.routes = routes;
-    }
 }

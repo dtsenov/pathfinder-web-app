@@ -3,6 +3,8 @@ package com.web.pathfinder.model.entity;
 import com.web.pathfinder.model.enums.LevelEnum;
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "routes")
 public class RouteEntity extends BaseEntity {
@@ -25,8 +27,8 @@ public class RouteEntity extends BaseEntity {
     @ManyToOne
     private UserEntity author;
 
-    @ManyToOne
-    private CategoryEntity category;
+    @ManyToMany
+    private Set<CategoryEntity> categories;
 
     public RouteEntity() {
     }
@@ -79,11 +81,11 @@ public class RouteEntity extends BaseEntity {
         this.author = author;
     }
 
-    public CategoryEntity getCategory() {
-        return category;
+    public Set<CategoryEntity> getCategory() {
+        return categories;
     }
 
-    public void setCategory(CategoryEntity category) {
-        this.category = category;
+    public void setCategory(Set<CategoryEntity> category) {
+        this.categories = category;
     }
 }
