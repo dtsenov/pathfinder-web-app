@@ -1,6 +1,6 @@
 package com.web.pathfinder.web;
 
-import com.web.pathfinder.model.binding.UserRegisterBindingModel;
+import com.web.pathfinder.model.dto.UserRegisterDTO;
 import com.web.pathfinder.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +23,7 @@ public class UserRegisterController {
     }
 
     @PostMapping("/register")
-    public String register(UserRegisterBindingModel userRegisterBindingModel) {
+    public String register(UserRegisterDTO userRegisterBindingModel) {
 
         userService.registerUser(userRegisterBindingModel);
 

@@ -1,6 +1,6 @@
-package com.web.pathfinder.model.binding;
+package com.web.pathfinder.model.dto;
 
-public class UserRegisterBindingModel {
+public class UserRegisterDTO {
 
     private String username;
     private String fullName;
@@ -9,7 +9,7 @@ public class UserRegisterBindingModel {
     private String password;
     private String confirmPassword;
 
-    public UserRegisterBindingModel() {
+    public UserRegisterDTO() {
     }
 
     public String getUsername() {
