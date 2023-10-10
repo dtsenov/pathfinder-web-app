@@ -1,10 +1,10 @@
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="fragments/commons::head">
+<head th:replace="~{fragments/commons::head}">
 </head>
 <body>
-<header th:replace="fragments/commons::navigation">
+<header th:replace="~{fragments/commons::navigation}">
 </header>
 <main class="p-5 align-content-center bg-blur my-register-div">
     <div class="container mt-5">
@@ -42,6 +42,6 @@
     </div>
 </main>
 </body>
-<footer th:replace="fragments/commons::footer">
+<footer th:replace="~{fragments/commons::footer}">
 </footer>
 </html>

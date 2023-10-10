@@ -12,6 +12,9 @@ public class UserEntity extends BaseEntity {
     @Column(name = "username", nullable = false, unique = true)
     private String username;
 
+    @Column(name = "fullName", nullable = false)
+    private String fullName;
+
     @Column(name = "password", nullable = false)
     private String password;
 
@@ -59,11 +62,19 @@ public class UserEntity extends BaseEntity {
         this.level = level;
     }
 
-    public Set<RoleEntity> getRole() {
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public Set<RoleEntity> getRoles() {
         return roles;
     }
 
-    public void setRole(Set<RoleEntity> role) {
-        this.roles = role;
+    public void setRoles(Set<RoleEntity> roles) {
+        this.roles = roles;
     }
 }
