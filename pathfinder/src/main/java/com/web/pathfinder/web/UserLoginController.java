@@ -27,6 +27,6 @@ public class UserLoginController {
 
         boolean isLogged = userService.loginUser(userLoginDTO);
 
-        return isLogged ? "index" : "login";
+        return isLogged ? "redirect:/" : "login";
     }
 }

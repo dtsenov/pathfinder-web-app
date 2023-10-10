@@ -34,6 +34,7 @@ public class UserServiceImpl implements UserService {
        if (userEntity != null) {
            currentUser.setUsername(userEntity.getUsername());
            currentUser.setLogged(true);
+           currentUser.setAge(userEntity.getAge());
            currentUser.setEmail(userEntity.getEmail());
            currentUser.setFullName(userEntity.getFullName());
        }
@@ -41,14 +42,15 @@ public class UserServiceImpl implements UserService {
        return currentUser.isLogged();
     }
 
-    private UserEntity map(UserRegisterDTO userRegisterBindingModel) {
+    private UserEntity map(UserRegisterDTO userRegisterDTO) {
         UserEntity user = new UserEntity();
 
-        user.setUsername(userRegisterBindingModel.getUsername());
-        user.setFullName(userRegisterBindingModel.getFullName());
-        user.setEmail(userRegisterBindingModel.getEmail());
+        user.setUsername(userRegisterDTO.getUsername());
+        user.setFullName(userRegisterDTO.getFullName());
+        user.setAge(userRegisterDTO.getAge());
+        user.setEmail(userRegisterDTO.getEmail());
         user.setLevel(LevelEnum.BEGINNER);
-        user.setPassword(userRegisterBindingModel.getPassword());
+        user.setPassword(userRegisterDTO.getPassword());
         return user;
     }
 }

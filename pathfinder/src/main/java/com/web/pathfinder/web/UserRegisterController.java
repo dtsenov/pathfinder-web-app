@@ -23,9 +23,9 @@ public class UserRegisterController {
     }
 
     @PostMapping("/register")
-    public String register(UserRegisterDTO userRegisterBindingModel) {
+    public String register(UserRegisterDTO userRegisterDTO) {
 
-        userService.registerUser(userRegisterBindingModel);
+        userService.registerUser(userRegisterDTO);
 
         return "redirect:/";
     }

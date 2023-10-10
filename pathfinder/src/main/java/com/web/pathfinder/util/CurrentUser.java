@@ -9,6 +9,7 @@ public class CurrentUser {
 
     private String username;
     private String fullName;
+    private Integer age;
     private String email;
     private boolean isLogged;
 
@@ -29,6 +30,14 @@ public class CurrentUser {
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
     }
 
     public String getEmail() {
