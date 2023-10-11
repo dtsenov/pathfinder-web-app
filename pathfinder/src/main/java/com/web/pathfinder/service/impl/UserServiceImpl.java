@@ -37,6 +37,8 @@ public class UserServiceImpl implements UserService {
            currentUser.setAge(userEntity.getAge());
            currentUser.setEmail(userEntity.getEmail());
            currentUser.setFullName(userEntity.getFullName());
+           currentUser.setLevel(userEntity.getLevel());
+           currentUser.setLevel(userEntity.getLevel());
        }
 
        return currentUser.isLogged();

@@ -1,5 +1,6 @@
 package com.web.pathfinder.util;
 
+import com.web.pathfinder.model.enums.LevelEnum;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
 
@@ -12,6 +13,7 @@ public class CurrentUser {
     private Integer age;
     private String email;
     private boolean isLogged;
+    private LevelEnum level;
 
     public CurrentUser() {
     }
@@ -54,6 +56,14 @@ public class CurrentUser {
 
     public void setLogged(boolean logged) {
         isLogged = logged;
+    }
+
+    public LevelEnum getLevel() {
+        return level;
+    }
+
+    public void setLevel(LevelEnum level) {
+        this.level = level;
     }
 
     //    public String getFullName() {
