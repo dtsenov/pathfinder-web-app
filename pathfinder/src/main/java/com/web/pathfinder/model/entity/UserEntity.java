@@ -12,7 +12,7 @@ public class UserEntity extends BaseEntity {
     @Column(name = "username", nullable = false, unique = true)
     private String username;
 
-    @Column(name = "fullName", nullable = false)
+    @Column(name = "full_name", nullable = false)
     private String fullName;
 
     @Column(name = "age", nullable = false)

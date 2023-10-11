@@ -20,7 +20,7 @@ public class CommentsEntity extends BaseEntity {
     @Column(name = "text_content", columnDefinition = "TEXT")
     private String textContent;
 
-    @ManyToOne()
+    @ManyToOne
     private UserEntity author;
 
     @ManyToOne

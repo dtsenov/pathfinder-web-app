@@ -18,7 +18,7 @@ public class RouteEntity extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private LevelEnum level;
 
-    @Column(name = "name")
+    @Column(name = "name", unique = true, nullable = false)
     private String name;
 
     @Column(name = "video_url")
