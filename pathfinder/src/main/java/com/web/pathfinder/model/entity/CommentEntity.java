@@ -9,12 +9,12 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "comments")
-public class CommentsEntity extends BaseEntity {
+public class CommentEntity extends BaseEntity {
 
-    @Column(name = "approved")
+    @Column(name = "approved", nullable = false)
     private Boolean approved;
 
-    @Column(name = "created")
+    @Column(name = "created", nullable = false)
     private LocalDateTime created;
 
     @Column(name = "text_content", columnDefinition = "TEXT")
@@ -26,7 +26,7 @@ public class CommentsEntity extends BaseEntity {
     @ManyToOne
     private RouteEntity route;
 
-    public CommentsEntity() {
+    public CommentEntity() {
     }
 
     public Boolean getApproved() {

@@ -7,12 +7,12 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "pictures")
-public class PicturesEntity extends BaseEntity {
+public class PictureEntity extends BaseEntity {
 
-    @Column(name = "title")
+    @Column(name = "title", nullable = false)
     private String title;
 
-    @Column(name = "url")
+    @Column(name = "url", columnDefinition = "TEXT", nullable = false)
     private String url;
 
     @ManyToOne
@@ -21,7 +21,7 @@ public class PicturesEntity extends BaseEntity {
     @ManyToOne
     private RouteEntity route;
 
-    public PicturesEntity() {
+    public PictureEntity() {
     }
 
     public String getTitle() {

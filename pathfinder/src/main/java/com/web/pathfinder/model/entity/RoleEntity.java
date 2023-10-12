@@ -10,16 +10,16 @@ import java.util.Set;
 public class RoleEntity extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
-    private RoleEnum name;
+    private RoleEnum role;
 
     public RoleEntity() {
     }
 
     public RoleEnum getName() {
-        return name;
+        return role;
     }
 
-    public void setName(RoleEnum name) {
-        this.name = name;
+    public void setName(RoleEnum role) {
+        this.role = role;
     }
 }
