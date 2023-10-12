@@ -13,7 +13,7 @@ spring:
       filter:
         enabled: true
   #  sql:
-  #    init: 
+  #    init:
   #      mode: always
   jpa:
     # Choose either MySQL 8 or MySQL 5 below
