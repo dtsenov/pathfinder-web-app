@@ -1,10 +1,22 @@
 package com.web.pathfinder.model.dto;
 
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+
 public class UserRegisterDTO {
 
+    @NotNull
     private String username;
+
+    @NotNull
     private String fullName;
+
+    @NotNull
     private String email;
+
+    @NotNull
+    @Positive
     private Integer age;
     private String password;
     private String confirmPassword;
