@@ -8,9 +8,9 @@
     <h1 class="border-bottom">Register</h1>
     <div class="d-flex justify-content-center ">
         <div class="row g-3">
-            <form th:object="${userRegisterDTO}"
-                    th:action="@{/users/register}"
-                    th:method="POST">
+            <form th:object="${userRegisterBindingModel}"
+                  th:action="@{/users/register}"
+                  th:method="POST">
                 <div>
                     <div class="col-auto">
                         <label for="inputUsername" class="col-form-label ">Username</label>
@@ -23,11 +23,12 @@
                                class="form-control"
                                aria-describedby="usernameHelpInline">
                         <small id="usernameError"
-                               class="invalid-feedback bg-danger rounded">Username length must be more than 3
+                               th:if="${#fields.hasErrors('username')}"
+                               th:class="invalid-feedback bg-danger rounded">Username length must be more than 3
                             characters</small>
 
                         <small id="usernameUniqueError"
-                               class=" bg-danger rounded">Username is already occupied</small>
+                               class="is-invalid bg-danger rounded">Username is already occupied</small>
 
                     </div>
                 </div>
@@ -102,7 +103,7 @@
                         <label for="inputConfirmPassword" class="col-form-label ">Confirm Password</label>
                     </div>
                     <div class="col-auto">
-                        <input name="confirmPassword"
+                        <input th:field="*{confirmPassword}"
                                required minlength="5" maxlength="20"
                                type="password"
                                id="inputConfirmPassword"

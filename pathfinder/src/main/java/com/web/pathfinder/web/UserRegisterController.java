@@ -1,8 +1,10 @@
 package com.web.pathfinder.web;
 
-import com.web.pathfinder.model.dto.UserRegisterDTO;
+import com.web.pathfinder.model.dto.UserRegisterBindingModel;
+import com.web.pathfinder.model.service.UserServiceModel;
 import com.web.pathfinder.service.UserService;
 import jakarta.validation.Valid;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,14 +19,17 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class UserRegisterController {
 
     private final UserService userService;
+    private final ModelMapper modelMapper;
 
-    public UserRegisterController(UserService userService) {
+
+    public UserRegisterController(UserService userService, ModelMapper modelMapper) {
         this.userService = userService;
+        this.modelMapper = modelMapper;
     }
 
     @ModelAttribute
-    public UserRegisterDTO userRegisterDTO() {
-        return new UserRegisterDTO();
+    public UserRegisterBindingModel userRegisterDTO() {
+        return new UserRegisterBindingModel();
     }
 
     @GetMapping("/register")
@@ -35,20 +40,23 @@ public class UserRegisterController {
     }
 
     @PostMapping("/register")
-    public String registerConfirm(@Valid UserRegisterDTO userRegisterDTO,
-                           BindingResult bindingResult,
-                           RedirectAttributes redirectAttributes) {
+    public String registerConfirm(@Valid UserRegisterBindingModel userRegisterBindingModel,
+                                  BindingResult bindingResult,
+                                  RedirectAttributes redirectAttributes) {
 
-        if (bindingResult.hasErrors()) {
+        boolean samePasswords = userRegisterBindingModel.getPassword().equals(userRegisterBindingModel.getConfirmPassword());
+
+        if (bindingResult.hasErrors() || !samePasswords) {
             redirectAttributes
-                    .addFlashAttribute("userRegisterDTO", userRegisterDTO)
-                    .addFlashAttribute("org.springframework.validation.BindingResult", bindingResult);
+                    .addFlashAttribute("userRegisterBindingModel", userRegisterBindingModel)
+                    .addFlashAttribute("org.springframework.validation.BindingResult.userRegisterBindingModel", bindingResult);
 
-        return "redirect:register";
+            return "redirect:register";
         }
 
-        userService.registerUser(userRegisterDTO);
+        userService.registerUser(modelMapper.map(
+                userRegisterBindingModel, UserServiceModel.class));
 
-        return "redirect:/";
+        return "redirect:login";
     }
 }

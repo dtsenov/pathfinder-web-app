@@ -12,8 +12,6 @@
     <section class="top-container">
         <div class="showcase">
             <h1>Welcome,
-                <th:block th:if="${@currentUser.isLogged()}" th:text="${@currentUser.getFullName()}"></th:block>
-                <th:block th:unless="${@currentUser.isLogged()}">Anonymous</th:block></h1>
             <h1>Find amazing routes</h1>
             <p>Sick of staying at home, sick of limitations? Be free! Find a route and enjoy nature!</p>
             <a href="/routes" class="btn">To routes</a>

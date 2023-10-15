@@ -1,11 +1,11 @@
 package com.web.pathfinder.model.dto;
 
-public class UserLoginDTO {
+public class UserLoginBindingModel {
 
     private String username;
     private String password;
 
-    public UserLoginDTO() {
+    public UserLoginBindingModel() {
     }
 
     public String getUsername() {

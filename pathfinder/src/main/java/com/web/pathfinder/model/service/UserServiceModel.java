@@ -1,36 +1,30 @@
-package com.web.pathfinder.model.entity;
+package com.web.pathfinder.model.service;
 
+import com.web.pathfinder.model.entity.RoleEntity;
 import com.web.pathfinder.model.enums.LevelEnum;
-import jakarta.persistence.*;
 
 import java.util.Set;
 
-@Entity
-@Table(name = "users")
-public class UserEntity extends BaseEntity {
+public class UserServiceModel {
 
-    @Column(name = "username", nullable = false, unique = true)
+    private Long id;
     private String username;
-
-    @Column(name = "full_name", nullable = false)
     private String fullName;
-
-    @Column(name = "age", nullable = false)
     private Integer age;
-
-    @Column(name = "password", nullable = false)
     private String password;
-
-    @Column(name = "email")
     private String email;
-
-    @ManyToMany(fetch = FetchType.EAGER)
     private Set<RoleEntity> roles;
-
-    @Enumerated(EnumType.STRING)
     private LevelEnum level;
 
-    public UserEntity() {
+    public UserServiceModel() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -39,6 +33,14 @@ public class UserEntity extends BaseEntity {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public Integer getAge() {
@@ -65,27 +67,19 @@ public class UserEntity extends BaseEntity {
         this.email = email;
     }
 
-    public LevelEnum getLevel() {
-        return level;
-    }
-
-    public void setLevel(LevelEnum level) {
-        this.level = level;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
     public Set<RoleEntity> getRoles() {
         return roles;
     }
 
     public void setRoles(Set<RoleEntity> roles) {
         this.roles = roles;
+    }
+
+    public LevelEnum getLevel() {
+        return level;
+    }
+
+    public void setLevel(LevelEnum level) {
+        this.level = level;
     }
 }

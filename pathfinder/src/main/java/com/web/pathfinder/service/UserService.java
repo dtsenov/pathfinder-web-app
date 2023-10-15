@@ -1,11 +1,10 @@
 package com.web.pathfinder.service;
 
-import com.web.pathfinder.model.dto.UserLoginDTO;
-import com.web.pathfinder.model.dto.UserRegisterDTO;
+import com.web.pathfinder.model.service.UserServiceModel;
 
 public interface UserService {
 
-    void registerUser(UserRegisterDTO userRegisterBindingModel);
+    void registerUser(UserServiceModel userServiceModel);
 
-    boolean loginUser(UserLoginDTO userLoginDTO);
+    UserServiceModel findUserByUsernameAndPassword(String username, String password);
 }
