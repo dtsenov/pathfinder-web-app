@@ -13,11 +13,11 @@
                 <div class="profile-card p-3 py-4">
                     <div class="text-center"><img src="/images/profile.jpg" width="100" class="rounded-circle"></div>
                     <div class="text-center mt-3" th:object="${user}">
-                        <span th:text="*{getLevel()}" class="bg-secondary p-1 px-4 rounded text-white">Pro</span>
-                        <h5 th:text="*{getFullName()}" class="mt-4 mb-0">Full name</h5>
-                        <span>UI/UX Designer</span>
-                        <h5 th:text="*{getUsername()} "class="mt-2 mb-0">Username</h5>
-                        <span>UI/UX Designer</span>
+                        <span th:text="*{level}" class="bg-secondary p-1 px-4 rounded text-white">Pro</span>
+                        <h5 class="mt-4 mb-0">Full name</h5>
+                        <span th:text="*{fullName}">UI/UX Designer</span>
+                        <h5 class="mt-2 mb-0">Username</h5>
+                        <span th:text="*{username}">UI/UX Designer</span>
                         <h5 class="mt-2 mb-0">Age</h5>
                         <span th:text="*{getAge()}">33</span>
                         <div class="px-4 mt-5">
@@ -32,8 +32,9 @@
                             <li><i class="fab fa-google"></i></li>
                         </ul>
                         <div class="buttons">
-                            <button onClick="window.location.href='/';" class="btn btn-outline-primary px-4">Back</button>
-<!--                            <button class="btn btn-primary px-4 ms-3">Contact</button>-->
+                            <button onClick="window.location.href='/';" class="btn btn-outline-primary px-4">Back
+                            </button>
+                            <!--                            <button class="btn btn-primary px-4 ms-3">Contact</button>-->
                         </div>
                     </div>
                 </div>
