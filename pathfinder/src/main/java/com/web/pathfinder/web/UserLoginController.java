@@ -19,16 +19,14 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class UserLoginController {
 
     private final UserService userService;
-    private final CurrentUser currentUser;
 
     @ModelAttribute
     public UserLoginBindingModel userRegisterBindingModel() {
         return new UserLoginBindingModel();
     }
 
-    public UserLoginController(UserService userService, CurrentUser currentUser) {
+    public UserLoginController(UserService userService) {
         this.userService = userService;
-        this.currentUser = currentUser;
     }
 
     @GetMapping("/login")
@@ -62,14 +60,8 @@ public class UserLoginController {
                     return "redirect:login";
                 }
 
-        loginUser(user.getId(), user.getUsername());
+        userService.loginUser(user.getId(), user.getUsername());
 
         return  "redirect:/";
-    }
-
-    private void loginUser(Long id, String username) {
-        currentUser.setUsername(username);
-        currentUser.setId(id);
-
     }
 }

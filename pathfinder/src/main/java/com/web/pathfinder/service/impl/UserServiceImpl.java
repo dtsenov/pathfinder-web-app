@@ -30,6 +30,7 @@ public class UserServiceImpl implements UserService {
                 .orElse(null);
     }
 
+
     @Override
     public void registerUser(UserServiceModel userServiceModel) {
 
@@ -37,5 +38,17 @@ public class UserServiceImpl implements UserService {
         user.setLevel(LevelEnum.BEGINNER);
 
         userRepository.save(user);
+    }
+
+    @Override
+    public void loginUser(Long id, String username) {
+        currentUser.setUsername(username);
+        currentUser.setId(id);
+    }
+
+    @Override
+    public void logoutUser() {
+        currentUser.setId(null);
+        currentUser.setUsername(null);
     }
 }
