@@ -1,4 +1,4 @@
-package com.web.pathfinder.model.dto;
+package com.web.pathfinder.model.binding;
 
 public class UserLoginBindingModel {
 

@@ -1,6 +1,5 @@
 package com.web.pathfinder.service.impl;
 
-import com.web.pathfinder.model.dto.UserLoginBindingModel;
 import com.web.pathfinder.model.entity.UserEntity;
 import com.web.pathfinder.model.enums.LevelEnum;
 import com.web.pathfinder.model.service.UserServiceModel;
@@ -50,5 +49,13 @@ public class UserServiceImpl implements UserService {
     public void logoutUser() {
         currentUser.setId(null);
         currentUser.setUsername(null);
+    }
+
+    @Override
+    public UserServiceModel findById(Long id) {
+        return userRepository
+                .findById(id)
+                .map(user -> modelMapper.map(user, UserServiceModel.class))
+                .orElse(null);
     }
 }

@@ -1,9 +1,8 @@
 package com.web.pathfinder.web;
 
-import com.web.pathfinder.model.dto.UserLoginBindingModel;
+import com.web.pathfinder.model.binding.UserLoginBindingModel;
 import com.web.pathfinder.model.service.UserServiceModel;
 import com.web.pathfinder.service.UserService;
-import com.web.pathfinder.util.CurrentUser;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

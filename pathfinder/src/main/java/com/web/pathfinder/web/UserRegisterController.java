@@ -1,6 +1,6 @@
 package com.web.pathfinder.web;
 
-import com.web.pathfinder.model.dto.UserRegisterBindingModel;
+import com.web.pathfinder.model.binding.UserRegisterBindingModel;
 import com.web.pathfinder.model.service.UserServiceModel;
 import com.web.pathfinder.service.UserService;
 import jakarta.validation.Valid;
