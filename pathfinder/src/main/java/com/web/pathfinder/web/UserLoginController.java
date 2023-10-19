@@ -20,7 +20,7 @@ public class UserLoginController {
     private final UserService userService;
 
     @ModelAttribute
-    public UserLoginBindingModel userRegisterBindingModel() {
+    public UserLoginBindingModel userLoginBindingModel() {
         return new UserLoginBindingModel();
     }
 
