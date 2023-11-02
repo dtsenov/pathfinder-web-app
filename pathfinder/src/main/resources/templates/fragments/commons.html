@@ -23,7 +23,7 @@
     <header th:fragment="navigation">
         <nav class="main-nav">
             <ul>
-                <th:block th:object="${@currentUser}" th:if="${@currentUser.id == null}">
+                <th:block>
                     <li>
                         <a href="/">Home</a>
                     </li>
@@ -38,12 +38,13 @@
                 </li>
                 </th:block>
 
-                <th:block th:object="${@currentUser}" th:if="${@currentUser.id != null}">
+                <th:block>
                     <li>
                         <a href="/routes/add">Add new route</a>
                     </li>
                     <li>
-                        <a th:href="@{/users/profile/{id}(id = *{id})}">Profile</a>
+                        //TODO
+                        <a th:href="@{/users/profile/{id}(id = 1 )}" >Profile</a>
                     </li>
                     <li>
                         <a href="/">Admin</a>

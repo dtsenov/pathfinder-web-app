@@ -59,7 +59,7 @@ public class UserLoginController {
                     return "redirect:login";
                 }
 
-        userService.loginUser(user.getId(), user.getUsername());
+                // TODO LOGIN USER
 
         return  "redirect:/";
     }
